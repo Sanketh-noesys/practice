@@ -1,0 +1,23 @@
+{
+  "Version": 1,
+  "Hash": "87xZqlxUb1jXCiSDzzjq5YRGgsNWsRtO5AW66MFqQD8=",
+  "Source": "combinedProject.Server",
+  "BasePath": "_content/combinedProject.Server",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [
+    {
+      "Identity": "C:\\Users\\Sanketh K\\Documents\\Practice\\combinedProject\\combinedproject.client\\combinedproject.client.esproj",
+      "Version": 2,
+      "Source": "combinedproject.client",
+      "GetPublishAssetsTargets": "GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained"
+    }
+  ],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
