@@ -1,22 +1,22 @@
-import React, { useEffect, useState } from 'react';
-import logo from './logo.svg';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
+import Menu from './Menu';
+import routes from './route-config';
 
 function App() {
-  const [myDate, myDateupdate]= useState(new Date());
-
-  useEffect(()=> {
-    const intid= setInterval(() => {
-      myDateupdate(new Date());
-    },1000);
-    return () => clearInterval(intid);
-  });
   return (
-    <div>
-      <h3>Eg React</h3>
-      <input />
-      <div> {myDate.toString()} </div>
-    </div>
+      <BrowserRouter>
+        <Menu />
+        <div className='container'>
+          <Routes>
+            {
+            routes.map((route,index) =>
+            <Route key={index} path={route.path} element={<route.component />} />
+            )
+            }
+          </Routes>
+        </div>
+      </BrowserRouter>
   );
 }
 
