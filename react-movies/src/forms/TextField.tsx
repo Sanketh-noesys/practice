@@ -1,4 +1,5 @@
 import { ErrorMessage, Field } from "formik";
+import React from "react";
 
 export default function TextField(props: textFieldProps) {
     return (
@@ -12,6 +13,6 @@ export default function TextField(props: textFieldProps) {
 }
 
 interface textFieldProps{
-    field : string;
-    displayName: string
+    field: string;
+    displayName: string;
 }

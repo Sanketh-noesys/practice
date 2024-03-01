@@ -1,6 +1,5 @@
 import { NavLink } from "react-router-dom";
 
-
 export default function Menu(){
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -8,7 +7,7 @@ export default function Menu(){
                 <NavLink className="navbar-brand" to="/">React Movies</NavLink>
                 <div className="collapse navbar-collapse">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li className="nav-item">
+                        <li className="nav-item">
                             <NavLink className="nav-link" to="/genres">
                                 Genres
                             </NavLink>
@@ -30,10 +29,9 @@ export default function Menu(){
                         </li>
                         <li className="nav-item">
                             <NavLink className="nav-link" to="/movies/create">
-                                Create a movie
+                                Create a Movie
                             </NavLink>
                         </li>
-                        
                     </ul>
                 </div>
             </div>

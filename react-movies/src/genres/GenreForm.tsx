@@ -1,12 +1,12 @@
-import { ErrorMessage, Field, Form, Formik, FormikHelpers } from "formik";
+import { Form, Formik, FormikHelpers } from "formik";
 import { Link } from "react-router-dom";
 import Button from "../utils/Button";
-import * as Yup from "yup";
-import TextField from "../forms/TextField";
+import * as Yup from 'yup';
+import TextField from '../forms/TextField'
 import { genreCreationDTO } from "./genres.model";
 
 export default function GenreForm(props: genreFormProps){
-    return(
+    return (
         <Formik initialValues={props.model}
             onSubmit={props.onSubmit}
             validationSchema={Yup.object({
@@ -14,11 +14,10 @@ export default function GenreForm(props: genreFormProps){
             })}
         >
             {(formikProps) => (
-                <Form placeholder={undefined}>
+                <Form>
                     <TextField field="name" displayName="Name" />
 
-
-                    <Button disabled={formikProps.isSubmitting} type="submit">Save Changes</Button>
+                    <Button disabled={formikProps.isSubmitting} type='submit'>Save Changes</Button>
                     <Link className="btn btn-secondary" to="/genres">Cancel</Link>
 
                 </Form>
@@ -29,6 +28,6 @@ export default function GenreForm(props: genreFormProps){
 }
 
 interface genreFormProps{
-    model : genreCreationDTO;
-    onSubmit(values: genreCreationDTO, action: FormikHelpers<genreCreationDTO>) : void;
+    model: genreCreationDTO;
+    onSubmit(values: genreCreationDTO, action: FormikHelpers<genreCreationDTO>): void;
 }
