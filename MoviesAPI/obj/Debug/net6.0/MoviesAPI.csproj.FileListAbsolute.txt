@@ -31,3 +31,11 @@ C:\Users\Sanketh K\Documents\Practice\practice\MoviesAPI\obj\Debug\net6.0\refint
 C:\Users\Sanketh K\Documents\Practice\practice\MoviesAPI\obj\Debug\net6.0\MoviesAPI.pdb
 C:\Users\Sanketh K\Documents\Practice\practice\MoviesAPI\obj\Debug\net6.0\MoviesAPI.genruntimeconfig.cache
 C:\Users\Sanketh K\Documents\Practice\practice\MoviesAPI\obj\Debug\net6.0\ref\MoviesAPI.dll
+C:\Users\Sanketh K\Documents\Practice\practice\MoviesAPI\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Sanketh K\Documents\Practice\practice\MoviesAPI\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\Sanketh K\Documents\Practice\practice\MoviesAPI\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Sanketh K\Documents\Practice\practice\MoviesAPI\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\Sanketh K\Documents\Practice\practice\MoviesAPI\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Sanketh K\Documents\Practice\practice\MoviesAPI\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\Sanketh K\Documents\Practice\practice\MoviesAPI\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Sanketh K\Documents\Practice\practice\MoviesAPI\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll

@@ -1,7 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.Extensions.Logging;
 using MoviesAPI.Entities;
+using MoviesAPI.Filters;
 using MoviesAPI.Services;
 using System;
 using System.Collections.Generic;
@@ -24,6 +27,8 @@ namespace MoviesAPI.Controllers
 
         [HttpGet]
         [HttpGet("/allgenres")]
+        //[ResponseCache(Duration = 60)]
+        [ServiceFilter(typeof(MyActionFilters))]
         public async Task<ActionResult<List<Genre>>> Get()
         {
             logger.LogInformation("Getting all the genres");
@@ -39,7 +44,9 @@ namespace MoviesAPI.Controllers
             if (genre == null)
             {
                 logger.LogWarning($"Genere with Id {Id} not found");
+                //throw new ApplicationException();
                 return NotFound();
+
             }
 
             return genre;
