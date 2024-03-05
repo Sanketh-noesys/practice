@@ -1,11 +1,13 @@
-﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using MoviesAPI.DTOs;
 using MoviesAPI.Entities;
 using MoviesAPI.Filters;
-using MoviesAPI.Services;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -16,61 +18,57 @@ namespace MoviesAPI.Controllers
     [ApiController]
     public class GenresController : ControllerBase
     {
-        private readonly IRepository repository;
         private readonly ILogger<GenresController> logger;
+        private readonly ApplicationDbContext context;
+        private readonly IMapper mapper;
 
-        public GenresController(IRepository repository, ILogger<GenresController> logger)
+        public GenresController(ILogger<GenresController> logger, 
+            ApplicationDbContext context,
+            IMapper mapper)
         {
-            this.repository = repository;
             this.logger = logger;
+            this.context = context;
+            this.mapper = mapper;
         }
 
         [HttpGet]
-        [HttpGet("/allgenres")]
-        //[ResponseCache(Duration = 60)]
-        [ServiceFilter(typeof(MyActionFilters))]
-        public async Task<ActionResult<List<Genre>>> Get()
+        public async Task<ActionResult<List<GenreDTO>>> Get()
         {
             logger.LogInformation("Getting all the genres");
-            return await repository.GetAllGenres();
+            
+            var genres = await context.Genres.ToListAsync();
+            return mapper.Map<List<GenreDTO>>(genres);
         }
 
-        [HttpGet("{Id:int}")]
-        public ActionResult<Genre> Get(int Id, string param2)
+        [HttpGet("{Id:int}",Name= "getGenre")]
+        public ActionResult<Genre> Get(int Id)
         {
-
-            logger.LogDebug("get by id executing");
-            var genre = repository.GetGenreById(Id);
-            if (genre == null)
-            {
-                logger.LogWarning($"Genere with Id {Id} not found");
-                //throw new ApplicationException();
-                return NotFound();
-
-            }
-
-            return genre;
+            throw new NotImplementedException();
+            
         }
 
 
 
         [HttpPost]
-        public ActionResult Post([FromBody] Genre genre)
+        public async Task<ActionResult> Post([FromBody] GenreCreationDTO genreCreationDTO)
         {
-            repository.AddGenre(genre);
+            var genre = mapper.Map<Genre>(genreCreationDTO);
+            context.Genres.Add(genre);
+            await context.SaveChangesAsync();
             return NoContent();
+
         }
 
         [HttpPut]
         public ActionResult Put([FromBody] Genre genre)
         {
-            return NoContent();
+            throw new NotImplementedException();
         }
 
         [HttpDelete]
         public ActionResult Delete()
         {
-            return NoContent();
+            throw new NotImplementedException();
         }
     }
 }

@@ -2,26 +2,6 @@
   {
     "ContainingType": "MoviesAPI.Controllers.GenresController",
     "Method": "Get",
-    "RelativePath": "allgenres",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.List\u00601[[MoviesAPI.Entities.Genre, MoviesAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "MoviesAPI.Controllers.GenresController",
-    "Method": "Get",
     "RelativePath": "api/genres",
     "HttpMethod": "GET",
     "IsController": true,
@@ -93,36 +73,11 @@
         "Name": "Id",
         "Type": "System.Int32",
         "IsRequired": true
-      },
-      {
-        "Name": "param2",
-        "Type": "System.String",
-        "IsRequired": false
       }
     ],
     "ReturnTypes": [
       {
         "Type": "MoviesAPI.Entities.Genre",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "MoviesAPI.Controllers.WeatherForecastController",
-    "Method": "Get",
-    "RelativePath": "WeatherForecast",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[MoviesAPI.WeatherForecast, MoviesAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
