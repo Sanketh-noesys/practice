@@ -6,6 +6,7 @@ namespace MoviesAPI.Entities
 {
     public class Genre 
     {
+        [Key]
         public int Id { get; set; }
         [Required(ErrorMessage ="The field {0} is req")]
         [StringLength(50)]

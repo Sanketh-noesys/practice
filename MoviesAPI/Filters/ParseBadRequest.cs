@@ -1,7 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace MoviesAPI.Filters
 {
@@ -10,17 +13,17 @@ namespace MoviesAPI.Filters
         public void OnActionExecuted(ActionExecutedContext context)
         {
             var result = context.Result as IStatusCodeActionResult;
-            if(result != null)
+            if (result == null)
             {
                 return;
             }
-            var statuscode = result.StatusCode;
 
-            if(statuscode==400)
+            var statusCode = result.StatusCode;
+            if (statusCode == 400)
             {
                 var response = new List<string>();
                 var badRequestObjectResult = context.Result as BadRequestObjectResult;
-                if(badRequestObjectResult.Value is string)
+                if (badRequestObjectResult.Value is string)
                 {
                     response.Add(badRequestObjectResult.Value.ToString());
                 }
@@ -35,13 +38,12 @@ namespace MoviesAPI.Filters
                     }
                 }
 
-                context.Result =new BadRequestObjectResult(response);
+                context.Result = new BadRequestObjectResult(response);
             }
         }
 
         public void OnActionExecuting(ActionExecutingContext context)
         {
-            throw new System.NotImplementedException();
         }
     }
 }

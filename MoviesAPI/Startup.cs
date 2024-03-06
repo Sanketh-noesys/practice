@@ -34,7 +34,7 @@ namespace MoviesAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ApplicationDbContext>(options =>
-            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddControllers(options =>
             {
@@ -45,6 +45,7 @@ namespace MoviesAPI
             services.AddAutoMapper(typeof(Startup));
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer();
+            
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MovieApi", Version = "v1" });
@@ -55,7 +56,8 @@ namespace MoviesAPI
                 var frontendUrl = Configuration.GetValue<string>("frontend_url");
                 option.AddDefaultPolicy(builder =>
                 {
-                    builder.WithOrigins(frontendUrl).AllowAnyMethod().AllowAnyHeader();
+                    builder.WithOrigins(frontendUrl).AllowAnyMethod().AllowAnyHeader()
+                    .WithExposedHeaders(new string[] { "totalAmountOfRecords" });
                 });
             });
         }   
