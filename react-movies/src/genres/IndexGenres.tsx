@@ -1,46 +1,14 @@
-import { Key, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import axios, { AxiosResponse } from "axios";
-import { genreDTO } from "./genres.model";
 import { urlGenres } from "../endpoints";
-import GenericList from "../utils/GenericList";
-import Button from "../utils/Button";
-import Pagination from "../utils/Pagination";
-import RecordsPerPageSelect from "../utils/RecordsPerPageSelect";
+import IndexEntity from "../utils/IndexEntity";
+import { genreDTO } from "./genres.model";
 
 export default function IndexGenres(){
-
-    const [genres, setGenres] = useState<genreDTO[]>();
-
-    const [totalAmountOfPages, setTotalAmountOfPages] = useState(0);
-    const [recordsPerPage, setRecordsPerPage] = useState(5);
-    const [page, setPage] = useState(1);
-
-    useEffect(() =>{
-        axios.get(urlGenres, {
-            params: {page, recordsPerPage}
-        })
-                .then((response: AxiosResponse<genreDTO[]>) =>{
-                    const totalAmountOfRecords = 
-                        parseInt(response.headers['totalamountofrecords'], 10);
-                    setTotalAmountOfPages(Math.ceil(totalAmountOfRecords/recordsPerPage));
-                    setGenres(response.data);
-                })
-    }, [page, recordsPerPage])
-
     return (
         <>
-            <h3>Genres</h3>
-            <Link className="btn btn-primary" to="/genres/create">Create genre</Link>
-
-            <RecordsPerPageSelect onChange={amountOfRecords => {
-                setPage(1);
-                setRecordsPerPage(amountOfRecords);
-            }} />
-
-            <Pagination currentPage={page} totalAmountOfPages={totalAmountOfPages} onChange={newPage => setPage(newPage)} />
-            <GenericList list={genres}>
-                <table className="table table-striped">
+            <IndexEntity <genreDTO>
+                url={urlGenres} createUrl="genres/create" title="Genre" entityName="Genre"
+            >
+                {(genres, buttons) => <>
                     <thead>
                         <tr>
                             <th></th>
@@ -51,9 +19,7 @@ export default function IndexGenres(){
                         {genres?.map(genre => 
                         <tr key={genre.id}>
                             <td>
-                                <Link className="btn btn-success" to={`/genres/${genre.id}`}>Edit</Link>
-
-                                <Button className="btn btn-danger">Delete</Button>
+                                {buttons(`genres/edit/${genre.id}`, genre.id)}
                             </td>
                             <td>
                                 {genre.name}
@@ -61,10 +27,8 @@ export default function IndexGenres(){
                         
                         </tr>)}
                     </tbody>
-                    
-
-                </table>
-            </GenericList>
+                </>}
+            </IndexEntity>
         </>
     )
 }

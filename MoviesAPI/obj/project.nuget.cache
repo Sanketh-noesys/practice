@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "ITup/SlkxyWxEZ2e4kWQS+ZN39ZNlsGHC7WKOoh+EzH0TCrJo4gXFXujT7S3Bct00r9Jla1dkpbhQAWZjw18OA==",
+  "dgSpecHash": "zcoLz+nPP6XVF9q9WH7t+L5TsU2OCYxz3rnvGbATzeXfHn4MDWZSoRfhwbWdtuc2vsWO9670X29N6/cCowe8jQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Sanketh K\\Documents\\Practice\\practice\\MoviesAPI\\MoviesAPI.csproj",
   "expectedPackageFiles": [
@@ -20,6 +20,7 @@
     "C:\\Users\\Sanketh K\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\5.0.12\\microsoft.entityframeworkcore.relational.5.0.12.nupkg.sha512",
     "C:\\Users\\Sanketh K\\.nuget\\packages\\microsoft.entityframeworkcore.sqlite\\5.0.12\\microsoft.entityframeworkcore.sqlite.5.0.12.nupkg.sha512",
     "C:\\Users\\Sanketh K\\.nuget\\packages\\microsoft.entityframeworkcore.sqlite.core\\5.0.12\\microsoft.entityframeworkcore.sqlite.core.5.0.12.nupkg.sha512",
+    "C:\\Users\\Sanketh K\\.nuget\\packages\\microsoft.entityframeworkcore.sqlite.nettopologysuite\\5.0.2\\microsoft.entityframeworkcore.sqlite.nettopologysuite.5.0.2.nupkg.sha512",
     "C:\\Users\\Sanketh K\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\5.0.1\\microsoft.entityframeworkcore.sqlserver.5.0.1.nupkg.sha512",
     "C:\\Users\\Sanketh K\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\5.0.1\\microsoft.entityframeworkcore.tools.5.0.1.nupkg.sha512",
     "C:\\Users\\Sanketh K\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
@@ -45,6 +46,9 @@
     "C:\\Users\\Sanketh K\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
     "C:\\Users\\Sanketh K\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\Sanketh K\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
+    "C:\\Users\\Sanketh K\\.nuget\\packages\\mod_spatialite\\4.3.0.1\\mod_spatialite.4.3.0.1.nupkg.sha512",
+    "C:\\Users\\Sanketh K\\.nuget\\packages\\nettopologysuite\\2.1.0\\nettopologysuite.2.1.0.nupkg.sha512",
+    "C:\\Users\\Sanketh K\\.nuget\\packages\\nettopologysuite.io.spatialite\\2.0.0\\nettopologysuite.io.spatialite.2.0.0.nupkg.sha512",
     "C:\\Users\\Sanketh K\\.nuget\\packages\\runtime.native.system\\4.3.0\\runtime.native.system.4.3.0.nupkg.sha512",
     "C:\\Users\\Sanketh K\\.nuget\\packages\\sqlitepclraw.bundle_e_sqlite3\\2.0.4\\sqlitepclraw.bundle_e_sqlite3.2.0.4.nupkg.sha512",
     "C:\\Users\\Sanketh K\\.nuget\\packages\\sqlitepclraw.core\\2.0.4\\sqlitepclraw.core.2.0.4.nupkg.sha512",
