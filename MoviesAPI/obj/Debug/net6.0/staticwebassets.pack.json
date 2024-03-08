@@ -5,8 +5,16 @@
       "PackagePath": "staticwebassets\\actors\\4af539ad-36ba-4b00-accd-1c9080d408d4.jpg"
     },
     {
+      "Id": "C:\\Users\\Sanketh K\\Documents\\Practice\\practice\\MoviesAPI\\wwwroot\\actors\\4e0260d6-9506-42c6-9270-bbfec713a554.jpg",
+      "PackagePath": "staticwebassets\\actors\\4e0260d6-9506-42c6-9270-bbfec713a554.jpg"
+    },
+    {
       "Id": "C:\\Users\\Sanketh K\\Documents\\Practice\\practice\\MoviesAPI\\wwwroot\\actors\\b18bd7ef-93e7-4a53-9dc8-0899c2d0b92a.jpg",
       "PackagePath": "staticwebassets\\actors\\b18bd7ef-93e7-4a53-9dc8-0899c2d0b92a.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Sanketh K\\Documents\\Practice\\practice\\MoviesAPI\\wwwroot\\actors\\faca5b96-0897-4bbf-8037-369309051510.jpg",
+      "PackagePath": "staticwebassets\\actors\\faca5b96-0897-4bbf-8037-369309051510.jpg"
     },
     {
       "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.MoviesAPI.Microsoft.AspNetCore.StaticWebAssets.props",

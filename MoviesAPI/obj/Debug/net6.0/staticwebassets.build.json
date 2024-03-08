@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "yIZV78EaB19+lLxcYDbZ8IOyFvv/Er5SB3IqxnlXxIw=",
+  "Hash": "FhAsHzBQS9wUJ/viHjAe4imyQaeE7MpYIzNAcASQqkI=",
   "Source": "MoviesAPI",
   "BasePath": "_content/MoviesAPI",
   "Mode": "Default",
@@ -36,6 +36,25 @@
       "OriginalItemSpec": "wwwroot\\actors\\4af539ad-36ba-4b00-accd-1c9080d408d4.jpg"
     },
     {
+      "Identity": "C:\\Users\\Sanketh K\\Documents\\Practice\\practice\\MoviesAPI\\wwwroot\\actors\\4e0260d6-9506-42c6-9270-bbfec713a554.jpg",
+      "SourceId": "MoviesAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Sanketh K\\Documents\\Practice\\practice\\MoviesAPI\\wwwroot\\",
+      "BasePath": "_content/MoviesAPI",
+      "RelativePath": "actors/4e0260d6-9506-42c6-9270-bbfec713a554.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\actors\\4e0260d6-9506-42c6-9270-bbfec713a554.jpg"
+    },
+    {
       "Identity": "C:\\Users\\Sanketh K\\Documents\\Practice\\practice\\MoviesAPI\\wwwroot\\actors\\b18bd7ef-93e7-4a53-9dc8-0899c2d0b92a.jpg",
       "SourceId": "MoviesAPI",
       "SourceType": "Discovered",
@@ -53,6 +72,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\actors\\b18bd7ef-93e7-4a53-9dc8-0899c2d0b92a.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Sanketh K\\Documents\\Practice\\practice\\MoviesAPI\\wwwroot\\actors\\faca5b96-0897-4bbf-8037-369309051510.jpg",
+      "SourceId": "MoviesAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Sanketh K\\Documents\\Practice\\practice\\MoviesAPI\\wwwroot\\",
+      "BasePath": "_content/MoviesAPI",
+      "RelativePath": "actors/faca5b96-0897-4bbf-8037-369309051510.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\actors\\faca5b96-0897-4bbf-8037-369309051510.jpg"
     }
   ]
 }
