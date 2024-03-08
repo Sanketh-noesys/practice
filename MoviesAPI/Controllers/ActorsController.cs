@@ -40,7 +40,7 @@ namespace MoviesAPI.Controllers
         [HttpGet("{id:int}")]
         public async Task<ActionResult<ActorDTO>> Get(int id)
         {
-            var actor = await context.Actors.FirstOrDefaultAsync(x => x.Id == id);
+            var actor = await context.Actors.FirstOrDefaultAsync(x => x.id == id);
 
             if (actor == null)
             {
@@ -50,18 +50,23 @@ namespace MoviesAPI.Controllers
             return mapper.Map<ActorDTO>(actor);
         }
 
-        //[HttpGet("searchByName/{query}")]
-        //public async Task<ActionResult<List<ActorsMovieDTO>>> SearchByName(string query)
-        //{
-        //    if (string.IsNullOrWhiteSpace(query)) { return new List<ActorsMovieDTO>(); }
+        [HttpGet("searchByName/{query}")]
+        public async Task<ActionResult<List<ActorsMovieDTO>>> SearchByName(string query)
+        {
+            if (string.IsNullOrWhiteSpace(query)) { return new List<ActorsMovieDTO>(); }
 
-        //    return await context.Actors
-        //        .Where(x => x.Name.Contains(query))
-        //        .OrderBy(x => x.Name)
-        //        .Select(x => new ActorsMovieDTO { Id = x.Id, Name = x.Name, Picture = x.Picture })
-        //        .Take(5)
-        //        .ToListAsync();
-        //}
+            return await context.Actors
+                .Where(x => x.Name.Contains(query))
+                .OrderBy(x => x.Name)
+                .Select(x => new ActorsMovieDTO
+                {
+                    Id = (int)x.id,
+                    Name = x.Name,
+                    Picture = x.Picture
+                })
+                .Take(5)
+                .ToListAsync();
+        }
 
         [HttpPost]
         public async Task<ActionResult> Post([FromForm] ActorCreationDTO actorCreationDTO)
@@ -82,7 +87,7 @@ namespace MoviesAPI.Controllers
         [HttpPut("{id:int}")]
         public async Task<ActionResult> Put(int id, [FromForm] ActorCreationDTO actorCreationDTO)
         {
-            var actor = await context.Actors.FirstOrDefaultAsync(x => x.Id == id);
+            var actor = await context.Actors.FirstOrDefaultAsync(x => x.id == id);
 
             if (actor == null)
             {
@@ -104,7 +109,7 @@ namespace MoviesAPI.Controllers
         [HttpDelete("{id:int}")]
         public async Task<ActionResult> Delete(int id)
         {
-            var actor = await context.Actors.FirstOrDefaultAsync(x => x.Id == id);
+            var actor = await context.Actors.FirstOrDefaultAsync(x => x.id == id);
 
             if (actor == null)
             {

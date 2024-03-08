@@ -21,32 +21,32 @@ export function convertActorToFormData(actor: actorCreationDTO): FormData{
     return formData;
 }
 
-// export function convertMovieToFormData(movie: movieCreationDTO){
-//     const formData = new FormData();
+export function convertMovieToFormData(movie: movieCreationDTO){
+    const formData = new FormData();
 
-//     formData.append('title', movie.title);
+    formData.append('title', movie.title);
 
-//     if (movie.summary){
-//         formData.append('summary', movie.summary);
-//     }
+    if (movie.summary){
+        formData.append('summary', movie.summary);
+    }
 
-//     formData.append('trailer', movie.trailer);
-//     formData.append('inTheaters', String(movie.inTheaters));
+    formData.append('trailer', movie.trailer);
+    formData.append('inTheaters', String(movie.inTheaters));
 
-//     if (movie.releaseDate){
-//         formData.append('releaseDate', formatDate(movie.releaseDate));
-//     }
+    if (movie.releaseDate){
+        formData.append('releaseDate', formatDate(movie.releaseDate));
+    }
 
-//     if (movie.poster){
-//         formData.append('poster', movie.poster);
-//     }
+    if (movie.poster){
+        formData.append('poster', movie.poster);
+    }
 
-//     formData.append('genresIds', JSON.stringify(movie.genresIds));
-//     formData.append('movieTheatersIds', JSON.stringify(movie.movieTheatersIds));
-//     formData.append('actors', JSON.stringify(movie.actors));
+    formData.append('genresIds', JSON.stringify(movie.genresIds));
+    formData.append('movieTheatersIds', JSON.stringify(movie.movieTheatersIds));
+    formData.append('actors', JSON.stringify(movie.actors));
 
-//     return formData;
-// }
+    return formData;
+}
 
 function formatDate(date: Date){
     date = new Date(date);

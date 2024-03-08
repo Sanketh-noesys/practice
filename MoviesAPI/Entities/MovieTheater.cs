@@ -10,6 +10,6 @@ namespace MoviesAPI.Entities
         [Required]
         [StringLength(maximumLength:75)]
         public string Name { get; set; }
-        public Point Location { get; set; }
+        public string LocationWKT { get; set; }
     }
 }

@@ -38,11 +38,7 @@ namespace MoviesAPI
         {
             services.AddDbContext<ApplicationDbContext>(options =>
             options.UseSqlite(Configuration.GetConnectionString("DefaultConnection"),sqlOptions => sqlOptions.UseNetTopologySuite()));
-
-            services.AddSingleton<GeometryFactory>(NtsGeometryServices.Instance.CreateGeometryFactory(srid: 4326));
-
-
-
+                        
             services.AddControllers(options =>
             {
                 options.Filters.Add(typeof(MyExceptionFilter));
@@ -50,6 +46,14 @@ namespace MoviesAPI
             }).ConfigureApiBehaviorOptions(BadRequestsBehavior.Parse);
 
             services.AddAutoMapper(typeof(Startup));
+
+            services.AddSingleton(provider => new MapperConfiguration(config =>
+            {
+                var geometryFactory = provider.GetRequiredService<GeometryFactory>();
+                config.AddProfile(new AutoMapperProfiles(geometryFactory));
+            }).CreateMapper());
+
+            services.AddSingleton<GeometryFactory>(NtsGeometryServices.Instance.CreateGeometryFactory(srid: 4326));
 
             services.AddScoped<IFileStorageService, InAppStorageService>();
             services.AddHttpContextAccessor();

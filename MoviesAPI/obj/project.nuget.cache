@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "zcoLz+nPP6XVF9q9WH7t+L5TsU2OCYxz3rnvGbATzeXfHn4MDWZSoRfhwbWdtuc2vsWO9670X29N6/cCowe8jQ==",
+  "dgSpecHash": "fH3rFDfJ7FOL5VnE5ot8MZIOxDY0vq7gbbF8z/IxM3sReNk+p7yjC/aK2l1OTtlqLcjdeoz3OekNxpVpaM+80A==",
   "success": true,
   "projectFilePath": "C:\\Users\\Sanketh K\\Documents\\Practice\\practice\\MoviesAPI\\MoviesAPI.csproj",
   "expectedPackageFiles": [
@@ -49,6 +49,7 @@
     "C:\\Users\\Sanketh K\\.nuget\\packages\\mod_spatialite\\4.3.0.1\\mod_spatialite.4.3.0.1.nupkg.sha512",
     "C:\\Users\\Sanketh K\\.nuget\\packages\\nettopologysuite\\2.1.0\\nettopologysuite.2.1.0.nupkg.sha512",
     "C:\\Users\\Sanketh K\\.nuget\\packages\\nettopologysuite.io.spatialite\\2.0.0\\nettopologysuite.io.spatialite.2.0.0.nupkg.sha512",
+    "C:\\Users\\Sanketh K\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
     "C:\\Users\\Sanketh K\\.nuget\\packages\\runtime.native.system\\4.3.0\\runtime.native.system.4.3.0.nupkg.sha512",
     "C:\\Users\\Sanketh K\\.nuget\\packages\\sqlitepclraw.bundle_e_sqlite3\\2.0.4\\sqlitepclraw.bundle_e_sqlite3.2.0.4.nupkg.sha512",
     "C:\\Users\\Sanketh K\\.nuget\\packages\\sqlitepclraw.core\\2.0.4\\sqlitepclraw.core.2.0.4.nupkg.sha512",

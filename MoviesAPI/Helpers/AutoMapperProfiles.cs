@@ -1,17 +1,113 @@
 ﻿using AutoMapper;
 using MoviesAPI.DTOs;
 using MoviesAPI.Entities;
+using NetTopologySuite;
+using NetTopologySuite.Geometries;
+using NetTopologySuite.IO;
+using System.Collections.Generic;
 
 namespace MoviesAPI.Helpers
 {
-    public class AutoMapperProfiles: Profile
+    public class AutoMapperProfiles : Profile
     {
-        public AutoMapperProfiles() { 
+        public AutoMapperProfiles(GeometryFactory geometryFactory)
+        {
             CreateMap<GenreDTO, Genre>().ReverseMap();
             CreateMap<GenreCreationDTO, Genre>();
             CreateMap<ActorDTO, Actor>().ReverseMap();
             CreateMap<ActorCreationDTO, Actor>()
                 .ForMember(x => x.Picture, options => options.Ignore());
+
+            CreateMap<MovieTheater, MovieTheaterDTO>()
+                .ForMember(dto => dto.Latitude, opt => opt.MapFrom(src => GetLatitudeFromWKT(src.LocationWKT)))
+                .ForMember(dto => dto.Longitude, opt => opt.MapFrom(src => GetLongitudeFromWKT(src.LocationWKT)));
+
+
+            CreateMap<MovieTheaterCreationDTO, MovieTheater>()
+                .ForMember(x => x.LocationWKT, x => x.MapFrom(dto => $"POINT({dto.Longitude} {dto.Latitude})"));
+
+            CreateMap<MovieCreationDTO, Movie>()
+                .ForMember(x => x.Poster, options => options.Ignore())
+                .ForMember(x => x.MoviesGenres, options => options.MapFrom(MapMoviesGenres))
+                .ForMember(x => x.MovieTheatersMovies, options => options.MapFrom(MapMovieTheatersMovies))
+                 .ForMember(x => x.MoviesActors, options => options.MapFrom(MapMoviesActors));
+
+
+
+        }
+
+        private List<MoviesGenres> MapMoviesGenres(MovieCreationDTO movieCreationDTO, Movie movie)
+        {
+            var result = new List<MoviesGenres>();
+
+            if(movieCreationDTO != null)
+            {
+                return result;
+            }
+
+            foreach(var id in movieCreationDTO.GenresIds)
+            {
+                result.Add(new MoviesGenres() { GenreId = id });
+            }
+
+            return result;
+        }
+
+        private List<MoviesActors> MapMoviesActors(MovieCreationDTO movieCreationDTO, Movie movie)
+        {
+            var result = new List<MoviesActors>();
+            if (movieCreationDTO != null) { return result; }
+
+            foreach (var actor in movieCreationDTO.Actors)
+            {
+                result.Add(new MoviesActors() { ActorId = actor.Id, Character = actor.Character  });
+            }
+            return result;
+        }
+
+
+
+        private List<MovieTheatersMovies> MapMovieTheatersMovies(MovieCreationDTO movieCreationDTO,
+            Movie movie)
+        {
+            var result = new List<MovieTheatersMovies>();
+
+            if (movieCreationDTO.MovieTheatersIds == null) { return result; }
+
+            foreach (var id in movieCreationDTO.MovieTheatersIds)
+            {
+                result.Add(new MovieTheatersMovies() { MovieTheaterId = id });
+            }
+
+            return result;
+        }
+
+        private static double GetLatitudeFromWKT(string wkt)
+        {
+            var point = GetPointFromWKT(wkt);
+            return point?.Y ?? 0.0;
+        }
+
+        private static double GetLongitudeFromWKT(string wkt)
+        {
+            var point = GetPointFromWKT(wkt);
+            return point?.X ?? 0.0;
+        }
+
+        private static Point GetPointFromWKT(string wkt)
+        {
+            var geometryFactory = NtsGeometryServices.Instance.CreateGeometryFactory(srid: 4326); // Use the appropriate SRID
+            var reader = new WKTReader(geometryFactory);
+
+            try
+            {
+                return reader.Read(wkt) as Point;
+            }
+            catch
+            {
+                return null;
+            }
+
         }
     }
 }

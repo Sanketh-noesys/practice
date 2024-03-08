@@ -122,3 +122,4 @@ C:\Users\Sanketh K\Documents\Practice\practice\MoviesAPI\bin\Debug\net6.0\runtim
 C:\Users\Sanketh K\Documents\Practice\practice\MoviesAPI\bin\Debug\net6.0\runtimes\win-x86\native\mod_spatialite.dll
 C:\Users\Sanketh K\Documents\Practice\practice\MoviesAPI\bin\Debug\net6.0\runtimes\win-x86\native\zlib1.dll
 C:\Users\Sanketh K\Documents\Practice\practice\MoviesAPI\obj\Debug\net6.0\EFCoreSqliteNetTopologySuite.cs
+C:\Users\Sanketh K\Documents\Practice\practice\MoviesAPI\bin\Debug\net6.0\Newtonsoft.Json.dll

@@ -10,8 +10,8 @@ using NetTopologySuite.Geometries;
 namespace MoviesAPI.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240307131146_MovieTheaters")]
-    partial class MovieTheaters
+    [Migration("20240308053924_movieTheater")]
+    partial class movieTheater
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -76,7 +76,7 @@ namespace MoviesAPI.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("MoviesTheaters");
+                    b.ToTable("MovieTheaters");
                 });
 #pragma warning restore 612, 618
         }

@@ -8,7 +8,7 @@ namespace MoviesAPI.Entities
     public class Actor
     {
         [Key]
-        public long Id { get; set; }
+        public long id { get; set; }
         [Required]
         [StringLength(120)]
         public string Name { get; set; }
