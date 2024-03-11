@@ -7,7 +7,7 @@ namespace MoviesAPI.Entities
     public class Genre 
     {
         [Key]
-        public long Id { get; set; }
+        public int Id { get; set; }
         [Required(ErrorMessage ="The field {0} is req")]
         [StringLength(50)]
         [FirstLetterUppercase]

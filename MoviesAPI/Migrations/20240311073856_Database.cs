@@ -3,10 +3,39 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MoviesAPI.Migrations
 {
-    public partial class movieAndFriends : Migration
+    public partial class Database : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "Actors",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Name = table.Column<string>(type: "TEXT", maxLength: 120, nullable: false),
+                    DateOfBirth = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    Biography = table.Column<string>(type: "TEXT", nullable: true),
+                    Picture = table.Column<string>(type: "TEXT", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Actors", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Genres",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Name = table.Column<string>(type: "TEXT", maxLength: 50, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Genres", x => x.Id);
+                });
+
             migrationBuilder.CreateTable(
                 name: "Movies",
                 columns: table => new
@@ -26,24 +55,37 @@ namespace MoviesAPI.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "MovieTheaters",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Name = table.Column<string>(type: "TEXT", maxLength: 75, nullable: false),
+                    LocationWKT = table.Column<string>(type: "TEXT", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_MovieTheaters", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "MoviesActors",
                 columns: table => new
                 {
                     ActorId = table.Column<int>(type: "INTEGER", nullable: false),
                     MovieId = table.Column<int>(type: "INTEGER", nullable: false),
                     Character = table.Column<string>(type: "TEXT", maxLength: 75, nullable: true),
-                    Order = table.Column<int>(type: "INTEGER", nullable: false),
-                    ActorId1 = table.Column<long>(type: "INTEGER", nullable: true)
+                    Order = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_MoviesActors", x => new { x.ActorId, x.MovieId });
                     table.ForeignKey(
-                        name: "FK_MoviesActors_Actors_ActorId1",
-                        column: x => x.ActorId1,
+                        name: "FK_MoviesActors_Actors_ActorId",
+                        column: x => x.ActorId,
                         principalTable: "Actors",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_MoviesActors_Movies_MovieId",
                         column: x => x.MovieId,
@@ -57,18 +99,17 @@ namespace MoviesAPI.Migrations
                 columns: table => new
                 {
                     GenreId = table.Column<int>(type: "INTEGER", nullable: false),
-                    MovieId = table.Column<int>(type: "INTEGER", nullable: false),
-                    GenreId1 = table.Column<long>(type: "INTEGER", nullable: true)
+                    MovieId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_MoviesGenres", x => new { x.GenreId, x.MovieId });
                     table.ForeignKey(
-                        name: "FK_MoviesGenres_Genres_GenreId1",
-                        column: x => x.GenreId1,
+                        name: "FK_MoviesGenres_Genres_GenreId",
+                        column: x => x.GenreId,
                         principalTable: "Genres",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_MoviesGenres_Movies_MovieId",
                         column: x => x.MovieId,
@@ -102,19 +143,9 @@ namespace MoviesAPI.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_MoviesActors_ActorId1",
-                table: "MoviesActors",
-                column: "ActorId1");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_MoviesActors_MovieId",
                 table: "MoviesActors",
                 column: "MovieId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_MoviesGenres_GenreId1",
-                table: "MoviesGenres",
-                column: "GenreId1");
 
             migrationBuilder.CreateIndex(
                 name: "IX_MoviesGenres_MovieId",
@@ -139,7 +170,16 @@ namespace MoviesAPI.Migrations
                 name: "MovieTheatersMovies");
 
             migrationBuilder.DropTable(
+                name: "Actors");
+
+            migrationBuilder.DropTable(
+                name: "Genres");
+
+            migrationBuilder.DropTable(
                 name: "Movies");
+
+            migrationBuilder.DropTable(
+                name: "MovieTheaters");
         }
     }
 }

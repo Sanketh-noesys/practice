@@ -16,11 +16,12 @@ import FilterMovies from "./movies/FilterMovies";
 
 import LandingPage from "./movies/LandingPage";
 import RedirectToLandingPage from './utils/RedirectToLandingPage';
+import MovieDetails from "./movies/MovieDetails";
 
 const routes = [
     {path: '/genres', component: IndexGenres, exact: true},
     {path: '/genres/create', component: CreateGenre},
-    {path: '/genres/edit/:id(\\d+)', component: EditGenre},
+    {path: '/genres/edit/:id', component: EditGenre},
 
     {path: '/actors', component: IndexActors, exact: true},
     {path: '/actors/create', component: CreateActor},
@@ -33,6 +34,8 @@ const routes = [
     {path: '/movies/create', component: CreateMovie},
     {path: '/movies/edit/:id(\\d+)', component: EditMovie},
     {path: '/movies/filter', component: FilterMovies},
+    {path: '/movie/:id(\\d+)', component: MovieDetails},
+
 
     {path: '/', component: LandingPage, exact: true},
     {path: '*', component: RedirectToLandingPage}

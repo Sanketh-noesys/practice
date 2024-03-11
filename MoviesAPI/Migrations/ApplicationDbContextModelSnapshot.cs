@@ -18,7 +18,7 @@ namespace MoviesAPI.Migrations
 
             modelBuilder.Entity("MoviesAPI.Entities.Actor", b =>
                 {
-                    b.Property<long>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -43,7 +43,7 @@ namespace MoviesAPI.Migrations
 
             modelBuilder.Entity("MoviesAPI.Entities.Genre", b =>
                 {
-                    b.Property<long>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -130,9 +130,6 @@ namespace MoviesAPI.Migrations
                     b.Property<int>("MovieId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<long?>("ActorId1")
-                        .HasColumnType("INTEGER");
-
                     b.Property<string>("Character")
                         .HasMaxLength(75)
                         .HasColumnType("TEXT");
@@ -141,8 +138,6 @@ namespace MoviesAPI.Migrations
                         .HasColumnType("INTEGER");
 
                     b.HasKey("ActorId", "MovieId");
-
-                    b.HasIndex("ActorId1");
 
                     b.HasIndex("MovieId");
 
@@ -157,12 +152,7 @@ namespace MoviesAPI.Migrations
                     b.Property<int>("MovieId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<long?>("GenreId1")
-                        .HasColumnType("INTEGER");
-
                     b.HasKey("GenreId", "MovieId");
-
-                    b.HasIndex("GenreId1");
 
                     b.HasIndex("MovieId");
 
@@ -192,10 +182,12 @@ namespace MoviesAPI.Migrations
                 {
                     b.HasOne("MoviesAPI.Entities.Actor", "Actor")
                         .WithMany()
-                        .HasForeignKey("ActorId1");
+                        .HasForeignKey("ActorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("MoviesAPI.Entities.Movie", "Movie")
-                        .WithMany()
+                        .WithMany("MoviesActors")
                         .HasForeignKey("MovieId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -209,7 +201,9 @@ namespace MoviesAPI.Migrations
                 {
                     b.HasOne("MoviesAPI.Entities.Genre", "Genre")
                         .WithMany()
-                        .HasForeignKey("GenreId1");
+                        .HasForeignKey("GenreId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("MoviesAPI.Entities.Movie", "Movie")
                         .WithMany("MoviesGenres")
@@ -224,6 +218,8 @@ namespace MoviesAPI.Migrations
 
             modelBuilder.Entity("MoviesAPI.Entities.Movie", b =>
                 {
+                    b.Navigation("MoviesActors");
+
                     b.Navigation("MoviesGenres");
 
                     b.Navigation("MovieTheatersMovies");

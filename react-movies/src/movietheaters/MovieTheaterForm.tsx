@@ -11,8 +11,11 @@ export default function MovieTheaterForm(props: movieTheaterForm){
 
     function transformCoordinates(): coordinateDTO[] | undefined {
         if (props.model.latitude && props.model.longitude){
-            const response: coordinateDTO = {lat: props.model.latitude,
-            lng: props.model.longitude}
+            const response: coordinateDTO = {
+                lat: props.model.latitude,
+                lng: props.model.longitude,
+                name: null
+            }
             return [response];
         }
         

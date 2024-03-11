@@ -27,6 +27,7 @@ export default function IndexGenres(){
                         
                         </tr>)}
                     </tbody>
+                    
                 </>}
             </IndexEntity>
         </>

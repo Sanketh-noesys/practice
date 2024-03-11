@@ -8,7 +8,9 @@ export default function MoviesList(props: moviesListProps) {
     list={props.movies}>
         <div className={css.div}>
             {props.movies?.map(movie =>
-                <IndividualMovie {...movie} key={movie.id} />)}
+                {
+                    return <IndividualMovie {...movie} key={movie.id} />;
+                })}
         </div>
     </GenericList>
 }

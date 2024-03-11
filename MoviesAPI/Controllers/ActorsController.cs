@@ -40,7 +40,7 @@ namespace MoviesAPI.Controllers
         [HttpGet("{id:int}")]
         public async Task<ActionResult<ActorDTO>> Get(int id)
         {
-            var actor = await context.Actors.FirstOrDefaultAsync(x => x.id == id);
+            var actor = await context.Actors.FirstOrDefaultAsync(x => x.Id == id);
 
             if (actor == null)
             {
@@ -60,7 +60,7 @@ namespace MoviesAPI.Controllers
                 .OrderBy(x => x.Name)
                 .Select(x => new ActorsMovieDTO
                 {
-                    Id = (int)x.id,
+                    Id = (int)x.Id,
                     Name = x.Name,
                     Picture = x.Picture
                 })
@@ -87,7 +87,7 @@ namespace MoviesAPI.Controllers
         [HttpPut("{id:int}")]
         public async Task<ActionResult> Put(int id, [FromForm] ActorCreationDTO actorCreationDTO)
         {
-            var actor = await context.Actors.FirstOrDefaultAsync(x => x.id == id);
+            var actor = await context.Actors.FirstOrDefaultAsync(x => x.Id == id);
 
             if (actor == null)
             {
@@ -109,7 +109,7 @@ namespace MoviesAPI.Controllers
         [HttpDelete("{id:int}")]
         public async Task<ActionResult> Delete(int id)
         {
-            var actor = await context.Actors.FirstOrDefaultAsync(x => x.id == id);
+            var actor = await context.Actors.FirstOrDefaultAsync(x => x.Id == id);
 
             if (actor == null)
             {
