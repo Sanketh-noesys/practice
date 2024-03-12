@@ -26,7 +26,7 @@ export default function LandingPage() {
     }>
       <h3>In Theaters</h3>
       <MoviesList movies={movies.inTheaters} />
-
+      <br/>
       <h3>Upcoming Releases</h3>
       <MoviesList movies={movies.upcomingReleases} />
     </AlertContext.Provider>

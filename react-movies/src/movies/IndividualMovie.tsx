@@ -29,14 +29,32 @@ export default function IndividualMovie(props: movieDTO){
             <p>
                 <Link to={buildLink()}>{props.title}</Link>
             </p>
-            <div>
-                <Link style={{marginRight: '1rem'}} className="btn btn-info" to={`/movies/edit/${props.id}`}>
-                    Edit
-                </Link>
-                <Button onClick={() => customConfirm(() => deleteMovie())} className="btn btn-danger">
-                    Delete
-                </Button>
-            </div>
+            <div style={{
+    display: 'flex',
+    borderRadius: '10px', 
+    overflow: 'hidden',
+    border: '1px solid #ccc',
+}}>
+    <Link style={{
+        flex: '1',
+        textAlign: 'center',
+        textDecoration: 'none',
+        padding: '10px',
+        background: '#3498db', 
+        color: '#fff', 
+        borderRight: '1px solid #ccc', 
+        borderRadius: '10px 0 0 10px', 
+    }} className="btn btn-info" to={`/movies/edit/${props.id}`}>
+        Edit
+    </Link>
+    <Button onClick={() => customConfirm(() => deleteMovie())} className="btn btn-danger">
+        Delete
+        
+
+        
+    </Button>
+</div>
+
         </div>
     )
 }

@@ -13,6 +13,7 @@ export default function IndexActors() {
                     <tr>
                         <th></th>
                         <th>Name</th>
+                        <th>Photo</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -22,6 +23,12 @@ export default function IndexActors() {
                         </td>
                         <td>
                             {actor.name}
+                        </td>
+                        <td>
+                        <img src={actor.picture}
+                        style={{ width: '120px', height: '160px' }}
+                        alt="poster"
+                    />
                         </td>
                     </tr>)}
                 </tbody>

@@ -7,8 +7,6 @@ import Loading from "../utils/Loading";
 import ReactMarkdown from "react-markdown";
 import coordinateDTO from "../utils/coordinates.model";
 
-import Map from "../utils/Map";
-
 export default function MovieDetails() {
     
     const {id} : {id:string} = useParams();
@@ -41,7 +39,7 @@ export default function MovieDetails() {
         
 
     function generateEmbeddedVideoURL(trailer: string): string {
-        if (!trailer) {
+        if (!trailer || trailer == null) {
             return '';
         }
 
@@ -117,7 +115,7 @@ export default function MovieDetails() {
                 <Map coordinates={transformCoordinates()} readOnly = {true}  />
             </div> : null} */}
             
-        </div> : <h2>NO</h2>
+        </div> : <Loading/>
     )
 
 
