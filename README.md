@@ -5,13 +5,16 @@ The project aimed to develop a movie database and management system that include
 The application follows a client-server architecture where the frontend is built with React and TypeScript, and the backend is developed using .NET. The frontend communicates with the backend via RESTful APIs to fetch and update movie information.
 
 # Technologies Used
+
   Frontend:
     React
     TypeScript
     HTML/CSS
+    
   Backend:
     .NET
     C#
+    
   Database:
     Sqlite
     
