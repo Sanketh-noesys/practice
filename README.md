@@ -7,12 +7,12 @@ The application follows a client-server architecture where the frontend is built
 # Technologies Used
 
   Frontend:
-    React
-    TypeScript
-    HTML/CSS
+    React, 
+    TypeScript, 
+    HTML/CSS.
     
   Backend:
-    .NET
+    .NET, 
     C#
     
   Database:
